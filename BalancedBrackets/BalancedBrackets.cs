@@ -28,6 +28,7 @@ namespace BalancedBracketsNS
             int brackets = 0;
             foreach (char ch in str.ToCharArray())
             {
+
                 if (ch == '[')
                 {
                     brackets++;
@@ -35,6 +36,18 @@ namespace BalancedBracketsNS
                 else if (ch == ']')
                 {
                     brackets--;
+                }
+            }
+
+            var open = "[";
+            var close = "]";
+            for (int i =0; i <str.Length; i++)
+            {
+                int openIndex = str.IndexOf(open);
+                int closeIndex = str.IndexOf(close);
+                if (openIndex > closeIndex)
+                {
+                    return false;
                 }
             }
             return brackets == 0;
